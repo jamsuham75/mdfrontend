@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  <h1>F12 콘솔에서 결과를 확인하세요</h1>
+  <script>
+    // 객체 → JSON 문자열
+    const obj = { name: '이은성', age: 15 };
+    const str = JSON.stringify(obj);
+    console.log(str); // '{"name":"이은성","age":15}'
+
+    // JSON 문자열 → 객체
+    const parsed = JSON.parse(str);
+    console.log(parsed.name); // '이은성'
+    console.log(parsed.age);  // 15
+
+    // 보기 좋게 출력 (들여쓰기 2칸)
+    console.log(JSON.stringify(obj, null, 2));
+  </script>
+</body>
+</html>

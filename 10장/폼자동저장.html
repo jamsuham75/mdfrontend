@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>폼 자동 저장</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; max-width: 600px; }
+    label { display: block; margin-top: 12px; font-weight: 600; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 4px;
+                      border: 1px solid #ddd; border-radius: 6px;
+                      font-family: inherit; font-size: 1rem; }
+    textarea { min-height: 100px; resize: vertical; }
+    .status { margin-top: 12px; font-size: 0.85rem; color: #4caf50; }
+    button { margin-top: 12px; padding: 10px 20px; background: #2E75B6;
+             color: white; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>폼 자동 저장 — 새로고침해도 입력 내용 유지</h2>
+  <form id="draftForm">
+    <label>제목 <input name="title" id="title"></label>
+    <label>내용 <textarea name="content" id="content"></textarea></label>
+    <button type="button" onclick="clearDraft()">임시저장 삭제</button>
+  </form>
+  <p class="status" id="status">대기 중...</p>
+
+  <script>
+    const KEY = 'draft';
+    const title   = document.getElementById('title');
+    const content = document.getElementById('content');
+    const status  = document.getElementById('status');
+
+    // 페이지 로드 시 임시저장 복원
+    const draft = JSON.parse(localStorage.getItem(KEY) || '{}');
+    title.value   = draft.title   || '';
+    content.value = draft.content || '';
+
+    // 입력할 때마다 자동 저장 (디바운스 적용)
+    let timer;
+    function save() {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        localStorage.setItem(KEY, JSON.stringify({
+          title: title.value,
+          content: content.value,
+        }));
+        status.textContent = '✓ 자동 저장됨 (' + new Date().toLocaleTimeString() + ')';
+      }, 500);
+    }
+    title.addEventListener('input', save);
+    content.addEventListener('input', save);
+
+    function clearDraft() {
+      localStorage.removeItem(KEY);
+      title.value = content.value = '';
+      status.textContent = '임시저장 삭제됨';
+    }
+  </script>
+</body>
+</html>

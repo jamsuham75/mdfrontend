@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        const name  = '홍길동';
+        const age   = 25;
+        const score = 88;
+
+        // 기존 방식: 연결이 많을수록 복잡해짐
+        const msg1 = '이름: ' + name + ', 나이: ' + age + ', 점수: ' + score;
+
+        // 템플릿 리터럴: 훨씬 깔끔하고 직관적
+        const msg2 = `이름: ${name}, 나이: ${age}, 점수: ${score}`;
+        console.log(msg2); // '이름: 홍길동, 나이: 25, 점수: 88'
+
+        // 표현식 삽입
+        console.log(`내년 나이: ${age + 1}`);          // '내년 나이: 26'
+        console.log(`합격 여부: ${score >= 60 ? '합격' : '불합격'}`); // '합격 여부: 합격'
+
+        // 여러 줄 문자열
+        const html = `
+        <div class='card'>
+            <h2>${name}</h2>
+            <p>나이: ${age}세</p>
+        </div>
+        `;
+        console.log(html);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전송방식</title>
+</head>
+<body>
+    <!-- GET 방식: 검색 폼 -->
+    <form action="/search" method="GET">
+    <input type="text" name="q" placeholder="검색어 입력">
+    <button type="submit">검색</button>
+    </form>
+    <!-- 제출 시 URL: /search?q=입력한검색어 -->
+
+    <!-- POST 방식: 로그인 폼 -->
+    <form action="/login" method="POST">
+    <input type="password" name="pw" placeholder="비밀번호">
+    <button type="submit">로그인</button>
+    </form>
+    <!-- 제출 시 URL 변화 없음. 데이터는 요청 본문에 포함 -->
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Font Awesome 실습</title>
+  <!-- ① CDN 연결 -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .icon-row  { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+    .icon-primary { font-size: 2rem; color: #2E75B6; }
+    .btn { display: inline-flex; align-items: center; gap: 8px;
+           padding: 10px 20px; border-radius: 6px; border: none;
+           background: #2E75B6; color: white; cursor: pointer; }
+    .btn:hover { background: #1a5490; }
+  </style>
+</head>
+<body>
+
+  <!-- ② 아이콘 사용: <i> 또는 <span> 태그에 클래스 적용 -->
+  <div class="icon-row">
+    <i class="fa-solid fa-house icon-primary"></i>    <!-- 집 -->
+    <i class="fa-solid fa-envelope icon-primary"></i> <!-- 이메일 -->
+    <i class="fa-solid fa-star icon-primary"></i>     <!-- 별 -->
+    <i class="fa-solid fa-bars icon-primary"></i>     <!-- 햄버거 메뉴 -->
+    <i class="fa-brands fa-github icon-primary"></i>  <!-- GitHub -->
+  </div>
+
+  <!-- ③ 버튼 안에 아이콘 + 텍스트 조합 -->
+  <button class="btn">
+    <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+    로그인
+  </button>
+
+  <!-- ④ 아이콘만 있는 버튼 — aria-label 필수 -->
+  <button aria-label="닫기" style="margin-left:12px; padding:10px; border:none; cursor:pointer;">
+    <i class="fa-solid fa-xmark fa-lg" aria-hidden="true"></i>
+  </button>
+
+</body>
+</html>

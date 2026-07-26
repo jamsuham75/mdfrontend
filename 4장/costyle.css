@@ -1,0 +1,21 @@
+/* ① 자손 선택자(공백): A 안의 모든 B (깊이 무관) */
+main p    { line-height: 1.8; }
+.card img { border-radius: 8px; }
+
+/* ② 자식 선택자(>): A 바로 아래의 B만 */
+nav > ul { list-style: none; }
+ul  > li { display: inline-block; }
+
+/* ③ 인접 형제 선택자(+): A 바로 다음 형제 B 하나 */
+h2 + p        { margin-top: 0; }
+label + input { margin-left: 8px; }
+
+/* ④ 일반 형제 선택자(~): A 다음의 모든 형제 B */
+h2 ~ p { color: #555; }
+
+/* ⑤ 속성 선택자 */
+input[type="text"]   { border: 1px solid #ccc; }
+input[type="submit"] { background: #2E75B6; color: white; }
+a[href^="https"]     { color: green; }   /* https로 시작 */
+a[href$=".pdf"]      { color: red;   }   /* .pdf로 끝남  */
+a[href*="naver"]     { font-weight: bold; } /* naver 포함 */

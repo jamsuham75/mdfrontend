@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여러줄텍스트</title>
+</head>
+<body>
+    <!-- 기본 textarea -->
+    <textarea name="message" placeholder="내용을 입력하세요..."></textarea>
+
+    <!-- 크기와 기본값 지정 -->
+    <textarea name="introduce" rows="6" cols="50">
+    안녕하세요. 저는...
+    </textarea>
+    <!-- rows: 세로로 보이는 줄 수 (기본: 2) -->
+    <!-- cols: 가로로 보이는 글자 수 (기본: 20) -->
+    <!-- 실제 크기 조절은 CSS의 width/height로 하는 것이 더 정확하다 -->
+
+    <!-- CSS로 사용자의 크기 조절 방향 제한 -->
+    <style>
+    textarea {
+        resize: vertical;   /* 세로만 조절 가능 */
+        /* resize: horizontal; — 가로만 */
+        /* resize: none;       — 조절 불가 */
+        /* resize: both;       — 자유롭게 (기본값) */
+    }
+    </style>
+
+</body>
+</html>

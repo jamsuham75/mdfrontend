@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>요소 선택</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .highlight { background: #fff3cd; padding: 4px 8px; border-radius: 4px; }
+    #result { 
+      margin-top: 16px; padding: 12px; background: #f5f5f5;
+              border-radius: 8px; font-family: monospace; 
+              white-space: pre-line; 
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">DOM 요소 선택 실습</h1>
+  <ul class="list">
+    <li class="item">첫 번째 항목</li>
+    <li class="item">두 번째 항목</li>
+    <li class="item">세 번째 항목</li>
+  </ul>
+  <button onclick="runSelect()">선택 실행</button>
+  <div id="result">버튼을 클릭하면 결과가 여기 표시됩니다.</div>
+
+  <script>
+    function runSelect() {
+      const log = [];
+
+      // ① getElementById
+      const title = document.getElementById('title');
+      log.push('getElementById: ' + title.textContent);
+
+      // ② querySelector — 첫 번째 하나만
+      const firstItem = document.querySelector('.item');
+      firstItem.classList.add('highlight');
+      log.push('querySelector(.item): ' + firstItem.textContent);
+
+      // ③ querySelectorAll — 여러 개
+      const allItems = document.querySelectorAll('.item');
+      log.push('querySelectorAll 개수: ' + allItems.length + '개');
+      allItems.forEach((item, i) => 
+        log.push(`  [${i}] ${item.textContent}`));
+
+      // ④ null 체크 필수
+      const maybe = document.querySelector('.might-not-exist');
+      log.push('없는 요소: ' + maybe);  // null
+
+      document.getElementById('result').textContent = log.join('\n');
+    }
+  </script>
+</body>
+</html>

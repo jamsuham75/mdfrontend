@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 배열 펼치기
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+
+        // 배열 합치기
+        const combined = [...arr1, ...arr2];
+        console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+        // 배열 복사 (얕은 복사)
+        const copy = [...arr1];
+        copy.push(99);
+        console.log(arr1);  // [1, 2, 3] — 원본 변경 없음
+        console.log(copy);  // [1, 2, 3, 99]
+
+        // 객체 펼치기
+        const defaults = { theme: 'light', lang: 'ko', fontSize: 16 };
+        const userPrefs = { theme: 'dark', fontSize: 18 };
+
+        // 객체 병합: 뒤에 오는 값이 앞의 값을 덮어씀
+        const settings = { ...defaults, ...userPrefs };
+        console.log(settings);
+        // { theme: 'dark', lang: 'ko', fontSize: 18 }
+
+        // 함수 인수로 배열 펼치기
+        const nums = [3, 1, 4, 1, 5, 9, 2];
+        console.log(Math.max(...nums));  // 9
+    </script>
+</body>
+</html>

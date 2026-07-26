@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>박스 모델 실습</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 40px; background: #f5f5f5; }
+
+    /* content-box vs border-box 비교 */
+    .content-box {
+      box-sizing: content-box;
+      width: 200px; padding: 20px; border: 2px solid #e53935;
+      background: #fce4ec; margin-bottom: 12px;
+    }
+    .border-box {
+      box-sizing: border-box;
+      width: 200px; padding: 20px; border: 2px solid #2E75B6;
+      background: #e3f2fd; margin-bottom: 24px;
+    }
+
+    /* margin: 0 auto 가운데 정렬 */
+    .container {
+      width: 400px; margin: 0 auto;
+      background: white; padding: 20px;
+      border: 1px solid #ddd; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-box">
+    content-box: 실제 너비 244px (200 + 20x2 + 2x2)
+  </div>
+  <div class="border-box">
+    border-box: 실제 너비 200px (padding•border 포함)
+  </div>
+
+  <div class="container">
+    <p>margin: 0 auto → 가로 가운데 정렬</p>
+  </div>
+
+</body>
+</html>

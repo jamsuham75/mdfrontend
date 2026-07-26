@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+</head>
+<body>
+    <table border = "1">
+        <thead>  <!-- 표의 헤더 행(제목 행) -->
+            <tr>   <!-- tr: table row (하나의 행) -->
+            <th>이름</th>    <!-- th: table header (헤더 셀, 굵게+중앙 정렬이 기본) -->
+            <th>나이</th>
+            <th>직업</th>
+            </tr>
+        </thead>
+        <tbody>  <!-- 표의 본문 데이터 -->
+            <tr>
+            <td>홍길동</td>  <!-- td: table data (일반 데이터 셀) -->
+            <td>25</td>
+            <td>개발자</td>
+            </tr>
+            <tr>
+            <td>김개발</td>
+            <td>30</td>
+            <td>디자이너</td>
+            </tr>
+        </tbody>
+        <tfoot>  <!-- 표의 푸터 (합계 등) -->
+            <tr>
+            <td colspan='2'>평균 나이</td>
+            <td>27.5세</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

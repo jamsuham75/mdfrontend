@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실시간 날씨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>🌤️ 날씨 조회</h1>
+
+    <!-- 검색 영역 + 자동완성 드롭다운 -->
+    <div class="search">
+      <input id="city" placeholder="도시명 입력 (예: 서울, Busan, Tokyo)" autocomplete="off">
+      <button id="searchBtn">검색</button>
+      <ul id="suggestions" class="suggestions"></ul>
+    </div>
+
+    <!-- 빠른 선택 칩 -->
+    <div class="quick">
+      <button class="chip" data-city="Seoul">서울</button>
+      <button class="chip" data-city="Busan">부산</button>
+      <button class="chip" data-city="Jeju">제주</button>
+      <button class="chip" data-city="Tokyo">도쿄</button>
+      <button class="chip" data-city="New York">뉴욕</button>
+    </div>
+
+    <div class="info" id="info">도시명을 입력하거나 위 버튼을 눌러주세요</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

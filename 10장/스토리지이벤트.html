@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>storage 이벤트 테스트</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; max-width: 560px; }
+    button { padding: 10px 18px; margin-right: 6px; cursor: pointer; }
+    #log { background: #1e1e1e; color: #9fefa3;
+            padding: 14px; border-radius: 6px; margin-top: 16px;
+            font-family: monospace; font-size: 0.85rem;
+            min-height: 120px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>storage 이벤트 테스트</h2>
+  <p>이 페이지를 <b>두 개의 탭</b>에서 함께 열고, 한 탭의 버튼을 누르세요.</p>
+
+  <button onclick="setToken()">토큰 저장</button>
+  <button onclick="removeToken()">로그아웃 (토큰 삭제)</button>
+
+  <div id="log">다른 탭의 변경을 기다리는 중...</div>
+
+  <script>
+    const log = document.getElementById('log');
+
+    // 버튼 동작 — 다른 탭에서 이벤트가 발생하도록 변경
+    function setToken() {
+      localStorage.setItem('token', 'abc123');
+    }
+    function removeToken() {
+      localStorage.removeItem('token');
+    }
+
+    // storage 이벤트 — 다른 탭에서 변경될 때만 발생
+    window.addEventListener('storage', (e) => {
+      log.textContent =
+        '키: ' + e.key + '\n' +
+        '이전 값: ' + e.oldValue + '\n' +
+        '새 값: ' + e.newValue + '\n' +
+        '시각: ' + new Date().toLocaleTimeString();
+
+      // 활용 예: 다른 탭에서 토큰이 삭제되면 자동 로그아웃
+      if (e.key === 'token' && e.newValue === null) {
+        alert('다른 탭에서 로그아웃 → 이 탭도 새로고침');
+      }
+    });
+  </script>
+</body>
+</html>

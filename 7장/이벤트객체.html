@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이벤트 리스너</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .box { width: 200px; height: 200px; background: #e3f2fd;
+           border: 2px solid #2196f3; border-radius: 8px;
+           display: flex; align-items: center; justify-content: center;
+           font-size: 1rem; user-select: none; margin-bottom: 16px; }
+    .row { display: flex; gap: 8px; margin-bottom: 12px; }
+    input { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; width: 200px; }
+    button { padding: 8px 16px; border: none; border-radius: 6px;
+             background: #2E75B6; color: white; cursor: pointer; }
+    #log { background: #f5f5f5; padding: 12px; border-radius: 8px;
+           font-family: monospace; font-size: 0.85rem; min-height: 60px; }
+  </style>
+</head>
+<body>
+
+  <!-- 마우스 이벤트 -->
+  <div id="box" class="box">마우스를 올리거나 클릭해보세요</div>
+
+  <!-- 키보드 이벤트 -->
+  <div class="row">
+    <input type="text" id="txtInput" placeholder="입력해보세요 (실시간)">
+  </div>
+
+  <!-- 폼 제출 -->
+  <form id="myForm" class="row">
+    <input type="text" name="keyword" placeholder="검색어">
+    <button type="submit">검색</button>
+  </form>
+
+  <div id="log">이벤트 로그</div>
+
+  <script>
+    const box    = document.getElementById('box');
+    const log    = document.getElementById('log');
+    const txtInput = document.getElementById('txtInput');
+
+    function addLog(msg) {
+      log.textContent = msg;
+    }
+
+    // 마우스 이벤트
+    box.addEventListener('click', (e) => {
+      addLog(`click — 좌표: (${e.clientX}, ${e.clientY})`);
+      box.style.background = '#c8e6c9';
+    });
+    box.addEventListener('mouseover', () => {
+      box.style.borderColor = '#4caf50';
+      addLog('mouseover — 마우스가 박스 위에 있음');
+    });
+    box.addEventListener('mouseout', () => {
+      box.style.borderColor = '#2196f3';
+      box.style.background  = '#e3f2fd';
+      addLog('mouseout — 마우스가 박스를 벗어남');
+    });
+
+    // 키보드 이벤트 (실시간 input)
+    txtInput.addEventListener('input', (e) => {
+      addLog(`input — 현재 값: "${e.target.value}" (${e.target.value.length}자)`);
+    });
+    txtInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') addLog('Enter 키 눌림!');
+    });
+
+    // 폼 제출 (기본 동작 막기)
+    document.getElementById('myForm').addEventListener('submit', (e) => {
+      e.preventDefault();  // 페이지 이동 차단
+      const keyword = e.target.keyword.value;
+      addLog(`submit — 검색어: "${keyword}" (새로고침 없이 처리됨)`);
+    });
+  </script>
+</body>
+</html>

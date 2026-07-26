@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox 실전 패턴</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #f5f5f5; }
+
+    /* ① 네비게이션 바: 로고 왼쪽, 메뉴 오른쪽 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;  /* 로고와 메뉴를 양 끝으로 */
+      align-items: center;             /* 세로 가운데 */
+      padding: 0 24px; height: 60px;
+      background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: #2E75B6; }
+    .nav-menu { display: flex; gap: 24px; list-style: none; }
+    .nav-menu a { text-decoration: none; color: #333; font-size: 0.9rem; }
+
+    /* ② 버튼: 아이콘 + 텍스트 세로 가운데 정렬 */
+    .btn {
+      display: inline-flex;  /* inline처럼 배치되면서 flex 사용 */
+      align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 8px;
+      background: #2E75B6; color: white; border: none; cursor: pointer;
+      margin: 16px 24px;
+    }
+
+    /* ③ 카드: footer를 항상 하단에 */
+    .cards { display: flex; gap: 16px; padding: 24px; }
+    .card {
+      display: flex; flex-direction: column;  /* 세로 방향 flex */
+      background: white; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; flex: 1;
+    }
+    .card-body { padding: 16px; flex: 1; } /* 남은 공간 모두 차지 */
+    .card-footer {
+      padding: 12px 16px; border-top: 1px solid #eee;
+      background: #f9f9f9;  /* flex: 1이 아니므로 항상 바닥에 붙음 */
+    }
+
+    /* ④ 화면 전체 높이 레이아웃 */
+    .page {
+      display: flex; flex-direction: column; min-height: 40vh;
+      margin: 16px 24px; border: 1px dashed #ccc; border-radius: 8px;
+    }
+    .page-header { background: #2E75B6; color: white;
+                   padding: 12px 16px; border-radius: 8px 8px 0 0; }
+    .page-main   { flex: 1; padding: 16px; } /* 남은 공간 모두 */
+    .page-footer { background: #333; color: white;
+                   padding: 10px 16px; border-radius: 0 0 8px 8px;
+                   font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ① 네비게이션 바 -->
+  <nav class="navbar">
+    <span class="logo">🎨 MyBrand</span>
+    <ul class="nav-menu">
+      <li><a href="#">홈</a></li>
+      <li><a href="#">소개</a></li>
+      <li><a href="#">연락처</a></li>
+    </ul>
+  </nav>
+
+  <!-- ② 아이콘 + 텍스트 버튼 -->
+  <button class="btn">▶ 시작하기</button>
+
+  <!-- ③ 카드: 높이가 달라도 footer는 항상 아래에 -->
+  <div class="cards">
+    <div class="card">
+      <div class="card-body"><h3>짧은 카드</h3><p>내용이 적어요.</p></div>
+      <div class="card-footer">장바구니 담기</div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>긴 카드</h3>
+        <p>내용이 훨씬 많아서 카드가 길어집니다. 그래도 footer는 항상 아래에 붙습니다.</p>
+      </div>
+      <div class="card-footer">장바구니 담기</div>
+    </div>
+  </div>
+
+  <!-- ④ 화면 전체 높이 레이아웃 -->
+  <div class="page">
+    <div class="page-header">헤더 (고정 높이)</div>
+    <div class="page-main">메인 콘텐츠 영역 (flex: 1 — 남은 공간 모두 차지)</div>
+    <div class="page-footer">푸터는 항상 하단에</div>
+  </div>
+
+</body>
+</html>

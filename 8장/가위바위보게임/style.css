@@ -1,0 +1,149 @@
+:root {
+  --win:  #43a047;  --lose: #e53935;  --draw: #fb8c00;
+  --bg:   #1a1a2e;  --card: #16213e;  --text: #e0e0e0;
+  --accent: #5c6bc0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: '맑은 고딕', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+.game-wrap {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+h1 { font-size: 2rem; margin-bottom: 24px; }
+
+/* 점수판 */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.score-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.score-label { font-size: 0.85rem; opacity: 0.7; }
+.score-value { font-size: 2rem; font-weight: 700; }
+.score-item:first-child .score-value { color: var(--accent); }
+.score-item:last-child  .score-value { color: var(--lose);   }
+.score-draw .score-value             { color: var(--draw);   }
+
+/* 선택 표시 */
+.choice-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.choice-box {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  width: 140px;
+  transition: transform 0.3s;
+}
+.choice-icon { font-size: 3rem; margin-bottom: 8px; }
+.choice-box p { font-size: 0.85rem; opacity: 0.7; }
+.vs { font-size: 1.5rem; font-weight: 700; opacity: 0.4; }
+
+/* 결과 메시지 */
+.result-msg {
+  font-size: 1.4rem;
+  font-weight: 700;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+.result-msg.win  { color: var(--win);  }
+.result-msg.lose { color: var(--lose); }
+.result-msg.draw { color: var(--draw); }
+
+/* 선택 버튼 */
+.choice-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  flex: 1;
+}
+.choice-btn:hover  { border-color: var(--accent); transform: translateY(-4px); }
+.choice-btn:active { transform: scale(0.95); }
+.choice-btn.selected { border-color: var(--accent); background: rgba(92,107,192,0.2); }
+.btn-icon  { font-size: 2.4rem; }
+.btn-label { font-size: 0.9rem; font-weight: 600; }
+
+/* 스피너 (컴퓨터 선택 중 애니메이션) */
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+.spinning { animation: spin 0.2s linear infinite; display: inline-block; }
+
+/* 결과 등장 애니메이션 */
+@keyframes popIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+.pop { animation: popIn 0.4s ease forwards; }
+
+/* 기록 */
+.history-wrap { text-align: left; margin-bottom: 16px; }
+.history-wrap h3 { font-size: 0.9rem; opacity: 0.6; margin-bottom: 8px; }
+.history-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  animation: slideIn 0.2s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.history-result.win  { color: var(--win);  font-weight: 700; }
+.history-result.lose { color: var(--lose); font-weight: 700; }
+.history-result.draw { color: var(--draw); font-weight: 700; }
+
+.reset-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.reset-btn:hover { background: rgba(255,255,255,0.1); }

@@ -1,0 +1,82 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: '맑은 고딕', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  max-width: 460px;
+  width: 100%;
+}
+
+h1 { text-align: center; color: #333; margin-bottom: 20px; }
+
+/* 검색 영역 (자동완성 위치 기준) */
+.search {
+  display: flex; gap: 8px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.search input {
+  flex: 1; padding: 12px;
+  border: 2px solid #e0e0e0; border-radius: 8px;
+  font-size: 1rem; outline: none;
+}
+.search input:focus { border-color: #667eea; }
+.search button {
+  padding: 12px 20px; background: #667eea; color: white;
+  border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+.search button:hover { background: #5a67d8; }
+
+/* 자동완성 드롭다운 */
+.suggestions {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: white; border: 1px solid #e0e0e0; border-radius: 8px;
+  margin-top: 4px; list-style: none; max-height: 220px;
+  overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none; z-index: 10;
+}
+.suggestions.show { display: block; }
+.suggestions li {
+  padding: 10px 14px; cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+.suggestions li:last-child { border-bottom: none; }
+.suggestions li:hover { background: #f0f3ff; }
+.suggestions .country { color: #888; font-size: 0.85rem; }
+
+/* 빠른 선택 칩 */
+.quick {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.chip {
+  padding: 6px 14px; background: #f0f3ff; color: #667eea;
+  border: 1px solid #d4d9ff; border-radius: 20px;
+  font-size: 0.85rem; cursor: pointer;
+}
+.chip:hover { background: #667eea; color: white; }
+
+/* 결과 표시 */
+.info {
+  text-align: center; padding: 24px;
+  background: #f0f3ff; border-radius: 12px;
+}
+.city { font-size: 1.4rem; font-weight: 700; color: #333; margin-bottom: 8px; }
+.temp { font-size: 4rem; font-weight: 700; color: #667eea; line-height: 1; }
+.detail {
+  display: flex; justify-content: space-around;
+  margin-top: 20px; font-size: 0.9rem; color: #666;
+}
+.loading, .error { color: #888; padding: 20px; }
+.error { color: #c62828; }

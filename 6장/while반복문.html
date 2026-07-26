@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // while: 조건이 true인 동안 반복
+        let count = 0;
+        while (count < 5) {
+            console.log(`count: ${count}`);
+            count++;  // 반드시 종료 조건이 있어야 무한루프 방지!
+        }
+
+        // do...while: 최소 한 번은 실행 후 조건 확인
+        let input;
+        do {
+            input = prompt('숫자를 입력하세요:');  // 최소 한 번은 실행
+        } while (isNaN(input));  // 숫자가 아니면 다시 묻기
+    </script>
+</body>
+</html>

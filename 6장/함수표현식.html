@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 함수 표현식: 변수에 함수를 할당
+        const multiply = function(a, b) {
+        return a * b;
+        };
+        console.log(multiply(3, 4));  // 12
+
+        // 호이스팅(Hoisting): 선언식은 코드 상단으로 끌어올려짐
+        // 선언식: 선언 전에 호출 가능
+        console.log(add(2, 3));    // 5 — 선언 전에 호출해도 동작
+        function add(a, b) { return a + b; }
+
+        // 표현식: 선언 전에 호출 불가
+        // console.log(multiply(2, 3)); // ReferenceError!
+        const multiply2 = function(a, b) { return a * b; };
+    </script>
+</body>
+</html>

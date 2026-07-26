@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 변수 실습</title>
+  <style>
+    :root {
+      --color-primary: #2E75B6;
+      --color-bg:      #f5f7fa;
+      --color-text:    #333333;
+      --radius:        10px;
+      --shadow:        0 4px 16px rgba(0,0,0,0.1);
+    }
+    [data-theme="dark"] {
+      --color-primary: #90caf9;
+      --color-bg:      #1a1a2e;
+      --color-text:    #e0e0e0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-bg); color: var(--color-text);
+           font-family: sans-serif; padding: 32px; transition: 0.3s; }
+    .card { background: white; border-radius: var(--radius);
+            box-shadow: var(--shadow); padding: 24px; max-width: 360px; }
+    .btn  { background: var(--color-primary); color: white;
+            border: none; padding: 10px 20px; border-radius: var(--radius);
+            cursor: pointer; margin-top: 16px; }
+    .toggle { margin-bottom: 20px; padding: 8px 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="
+    document.documentElement.dataset.theme =
+    document.documentElement.dataset.theme === 'dark' ? '' : 'dark'">
+    다크 모드 전환
+  </button>
+  <div class="card">
+    <h2>CSS 변수 카드</h2>
+    <p>버튼을 눌러 다크 모드로 전환해보세요.</p>
+    <button class="btn">확인</button>
+  </div>
+</body>
+</html>

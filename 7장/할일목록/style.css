@@ -1,0 +1,71 @@
+:root {
+  --primary: #5c6bc0;  --primary-dark: #3949ab;
+  --danger:  #ef5350;  --done-color: #9e9e9e;
+  --bg: #f5f5f5;       --card: #ffffff;
+  --radius: 12px;      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: '맑은 고딕', sans-serif; background: var(--bg);
+  min-height: 100vh; display: flex;
+  justify-content: center; align-items: flex-start; padding: 40px 16px;
+}
+.app { width: 100%; max-width: 480px; }
+
+.app-header { text-align: center; margin-bottom: 24px; }
+.app-header h1 { font-size: 1.8rem; color: var(--primary); }
+.date { color: #888; font-size: 0.9rem; margin-top: 4px; }
+
+.input-area { display: flex; gap: 10px; margin-bottom: 16px; }
+#todoInput {
+  flex: 1; padding: 14px 18px; border: 2px solid #e0e0e0;
+  border-radius: var(--radius); font-size: 1rem; outline: none;
+  transition: border-color 0.2s;
+}
+#todoInput:focus { border-color: var(--primary); }
+#addBtn {
+  padding: 0 24px; background: var(--primary); color: white;
+  border: none; border-radius: var(--radius); font-size: 1rem;
+  font-weight: 600; cursor: pointer; transition: background 0.2s;
+}
+#addBtn:hover { background: var(--primary-dark); }
+
+.filter-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab {
+  flex: 1; padding: 10px; border: 2px solid #e0e0e0;
+  border-radius: var(--radius); background: white;
+  cursor: pointer; font-size: 0.9rem; transition: all 0.2s;
+}
+.tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+.todo-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.todo-item {
+  background: var(--card); border-radius: var(--radius);
+  padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow); animation: slideIn 0.2s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.todo-item.done { opacity: 0.6; }
+.todo-item.done .todo-text { text-decoration: line-through; color: var(--done-color); }
+.todo-checkbox { width: 20px; height: 20px; accent-color: var(--primary); cursor: pointer; }
+.todo-text   { flex: 1; font-size: 1rem; word-break: break-all; }
+.todo-delete {
+  background: none; border: none; color: #bbb; cursor: pointer;
+  font-size: 1.2rem; padding: 4px; border-radius: 6px; transition: color 0.2s;
+}
+.todo-delete:hover { color: var(--danger); }
+
+.empty-state { text-align: center; padding: 48px 0; color: #aaa; display: none; }
+.empty-state.visible { display: block; }
+
+.app-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 4px 0; color: #888; font-size: 0.9rem;
+}
+#clearDoneBtn {
+  background: none; border: none; color: var(--danger);
+  cursor: pointer; font-size: 0.875rem; text-decoration: underline;
+}

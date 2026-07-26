@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>요소 생성•추가•삭제</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .controls { display: flex; gap: 8px; margin-bottom: 12px; }
+    button { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; }
+    .btn-add  { background: #4caf50; color: white; }
+    .btn-del  { background: #e53935; color: white; }
+    .btn-clr  { background: #888; color: white; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; justify-content: space-between; align-items: center;
+         padding: 10px 14px; background: #f9f9f9; border-radius: 6px;
+         margin-bottom: 6px; border: 1px solid #eee; }
+    li button { background: #e53935; color: white; border: none;
+                border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="btn-add" onclick="addItem()">항목 추가</button>
+    <button class="btn-del" onclick="delLast()">마지막 삭제</button>
+    <button class="btn-clr" onclick="clearAll()">전체 삭제</button>
+  </div>
+  <ul id="list"></ul>
+
+  <script>
+    let count = 1;
+    const list = document.getElementById('list');
+
+    function addItem() {
+      const li = document.createElement('li');  // ① 생성
+      li.innerHTML = `항목 ${count++} 
+        <button onclick="this.parentElement.remove()">삭제</button>`;
+      list.appendChild(li);   // ② 추가 (맨 끝)
+    }
+
+    function delLast() {
+      const last = list.lastElementChild;
+      if (last) last.remove();  // ③ 마지막 자식 삭제
+    }
+
+    function clearAll() {
+      list.innerHTML = '';  // ③ 모든 자식 삭제
+    }
+  </script>
+</body>
+</html>

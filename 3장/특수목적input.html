@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특수목적</title>
+</head>
+<body>
+    <!-- range: 슬라이더 UI. min, max, step, value로 범위 설정 -->
+    <input type="range" name="volume" min="0" max="100" step="5" value="50">
+
+    <!-- color: 색상 팔레트 팝업 -->
+    <input type="color" name="themeColor" value="#2E75B6">
+    <!-- value: #RRGGBB 16진수 형식으로 기본값 지정 -->
+
+    <!-- file: 파일 업로드 버튼 -->
+    <input type="file" name="avatar" accept="image/*">
+    <!-- accept: 허용할 파일 형식 지정 -->
+    <!-- image/*: 모든 이미지 파일 / .pdf: PDF만 / .jpg,.png: 특정 확장자만 -->
+
+    <!-- hidden: 화면에 보이지 않고 서버로만 전달 -->
+    <input type="hidden" name="csrfToken" value="abc123xyz">
+    <!-- CSRF 토큰, 세션 ID 등 사용자에게 노출하지 않을 값에 활용 -->
+
+</body>
+</html>

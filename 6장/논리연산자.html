@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+       // && (AND): 둘 다 true여야 true
+        console.log(true && true);   // true
+        console.log(true && false);  // false
+        console.log(5 > 3 && 10 < 20); // true && true → true
+
+        // || (OR): 하나라도 true면 true
+        console.log(false || true);  // true
+        console.log(false || false); // false
+        console.log(age >= 18 || hasParentConsent); // 둘 중 하나만 true면 됨
+
+        // ! (NOT): 반전
+        console.log(!true);   // false
+        console.log(!false);  // true
+        console.log(!isLoggedIn); // 로그인 안 했으면 true
+
+        // 단락 평가(Short-circuit Evaluation) 활용
+        // &&: 앞이 false면 뒤를 실행하지 않음
+        isLoggedIn && showProfile();  // 로그인 했을 때만 showProfile 실행
+
+        // ||: 앞이 false(falsy)면 뒤를 반환
+        const name = userName || '손님';  // userName이 없으면 '손님' 사용
+
+        // ??: Nullish Coalescing — null/undefined일 때만 오른쪽 반환
+        const value = inputValue ?? '기본값';  // 0, '' 등은 그대로 사용
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+       // 동등 비교
+        console.log(5 == '5');   // true  ← 느슨한 비교(타입 무시, 사용 금지!)
+        console.log(5 === '5');  // false ← 엄격한 비교(타입까지 확인, 권장)
+        console.log(5 !== '5');  // true  ← 엄격한 불일치
+
+        // 크기 비교
+        console.log(10 > 5);    // true
+        console.log(10 < 5);    // false
+        console.log(10 >= 10);  // true  (이상)
+        console.log(10 <= 9);   // false (이하)
+
+        // 문자열 비교 (사전순)
+        console.log('apple' < 'banana');  // true
+        console.log('z' > 'a');           // true
+    </script>
+</body>
+</html>

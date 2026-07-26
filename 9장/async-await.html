@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Async/Await 흐름 이해</title>
+</head>
+<body>
+    <h1>F12 콘솔에서 비동기 흐름을 확인하세요.</h1>
+
+    <script>
+        // 렌더링 함수 시뮬레이션
+        function render(posts) {
+            console.log('%c[4] render() 실행: 화면에 포스트 데이터 표시', 'color: #e91e63;', posts.slice(0, 2));
+        }
+
+        // 1. 함수 정의 (보내주신 구조 유지)
+        async function loadUserPosts() {
+            try {
+                console.log('%c[1] loadUserPosts 시작: 유저 정보 요청...', 'color: #2196f3;');
+                
+                const userRes = await fetch('https://jsonplaceholder.typicode.com/users/1');
+                const user    = await userRes.json();
+                
+                console.log(`%c[2] 유저 정보 수신 완료: ${user.name} (ID: ${user.id})`, 'color: #2196f3;');
+                console.log('%c[3] 포스트 목록 요청 중...', 'color: #4caf50;');
+
+                // 다음 요청 실행
+                const postsRes = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
+                const posts    = await postsRes.json();
+
+                console.log('%c[3] 포스트 목록 수신 완료!', 'color: #4caf50;');
+                
+                return posts;
+
+            } catch (err) {
+                console.error('오류:', err);
+                throw err;
+            }
+        }
+
+        // 2. 사용
+        console.log('%c[START] 메인 흐름 시작', 'font-weight: bold;');
+        
+        loadUserPosts().then(posts => {
+            render(posts);
+            console.log('%c[END] 전체 비동기 흐름 종료', 'font-weight: bold;');
+        });
+
+        console.log('%c[WAIT] loadUserPosts가 완료될 동안 메인 스레드는 멈추지 않습니다.', 'color: gray; font-style: italic;');
+    </script>
+</body>
+</html>

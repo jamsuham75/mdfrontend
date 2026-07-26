@@ -1,0 +1,94 @@
+/* CSS 변수: 색상 한곳에서 관리 → 테마 변경이 쉬움 */
+:root {
+  --bg: #1a1a1a;        --display-bg: #1a1a1a;
+  --num: #333333;       --num-hover: #4a4a4a;
+  --op:  #ff9500;       --op-hover:  #ffab33;   /* iOS 오렌지 */
+  --func: #a5a5a5;      --func-hover: #c0c0c0;
+  --text-light: #ffffff;
+  --text-dark:  #000000;
+}
+
+/* 전체 리셋 — 브라우저 기본 여백 제거 + box-sizing 통일 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* body: 화면 정중앙에 계산기 배치 (Flexbox 중앙 정렬) */
+body {
+  font-family: -apple-system, sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;        /* 세로 중앙 */
+  justify-content: center;    /* 가로 중앙 */
+  padding: 16px;
+}
+
+/* 계산기 본체 — 모바일 친화 너비(320px) 제한 */
+.calculator {
+  width: 100%;
+  max-width: 320px;
+  background: var(--bg);
+  padding: 16px;
+  border-radius: 24px;
+}
+
+/* 디스플레이: Flexbox로 텍스트를 우하단에 정렬 */
+.display {
+  background: var(--display-bg);
+  color: var(--text-light);
+  font-size: 4rem;
+  font-weight: 200;          /* 얇은 글씨 — iOS 스타일 */
+  text-align: right;
+  padding: 30px 16px 20px;
+  min-height: 120px;
+  overflow: hidden;            /* 긴 숫자 잘라내기 */
+  word-break: break-all;
+  display: flex;
+  align-items: flex-end;       /* 세로 — 아래쪽 */
+  justify-content: flex-end;   /* 가로 — 오른쪽 */
+}
+
+/* 버튼 그리드: 4열 균등 분할 */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* 공통 버튼 — aspect-ratio: 1로 정사각형 → border-radius: 50%로 원형 */
+.btn {
+  aspect-ratio: 1;             /* 너비 = 높이 (반응형 정사각형) */
+  border-radius: 50%;          /* 완전한 원형 */
+  font-size: 1.8rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s;        /* 부드러운 색 변화 */
+  user-select: none;            /* 더블클릭 시 텍스트 선택 방지 */
+}
+
+/* 클릭 순간 살짝 작아지는 피드백 */
+.btn:active { transform: scale(0.95); }
+
+/* 숫자 버튼 (어두운 회색) */
+.btn.num          { background: var(--num);       color: var(--text-light); }
+.btn.num:hover    { background: var(--num-hover); }
+
+/* 연산자 버튼 (오렌지) — 더 큰 글씨로 강조 */
+.btn.op           { background: var(--op);        color: var(--text-light); font-size: 2.2rem; }
+.btn.op:hover     { background: var(--op-hover); }
+
+/* 선택된 연산자 표시 — 흰 배경에 오렌지 글씨로 반전 */
+.btn.op.active    { background: white; color: var(--op); }
+
+/* 기능 버튼 (밝은 회색) — AC, +/-, % */
+.btn.func         { background: var(--func);      color: var(--text-dark);  font-size: 1.5rem; }
+.btn.func:hover   { background: var(--func-hover); }
+
+/* 0번 버튼만 가로 2칸 → 직사각형, 텍스트 왼쪽 정렬 */
+.btn.zero {
+  aspect-ratio: unset;          /* 정사각형 비율 해제 */
+  grid-column: span 2;          /* 그리드 2칸 차지 */
+  border-radius: 50px;          /* pill 모양 */
+  text-align: left;
+  padding-left: 28px;
+}

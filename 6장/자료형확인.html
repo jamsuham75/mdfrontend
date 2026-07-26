@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료형확인</title>
+</head>
+<body>
+    <script>
+        // typeof: 값의 자료형을 문자열로 반환
+        console.log(typeof 42);          // 'number'
+        console.log(typeof '홍길동');    // 'string'
+        console.log(typeof true);        // 'boolean'
+        console.log(typeof undefined);   // 'undefined'
+        console.log(typeof null);        // 'object'  ← JS의 유명한 버그!
+        console.log(typeof {});          // 'object'
+        console.log(typeof []);          // 'object'  ← 배열도 object로 반환
+        console.log(typeof function(){}); // 'function'
+
+        // 배열 확인은 Array.isArray() 사용
+        console.log(Array.isArray([1, 2, 3])); // true
+        console.log(Array.isArray('abc'));      // false
+    </script>
+</body>
+</html>

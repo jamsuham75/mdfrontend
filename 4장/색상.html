@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>색상 표현 실습</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .swatch { display: inline-block; width: 120px; height: 48px;
+              line-height: 48px; text-align: center;
+              margin: 4px; border-radius: 6px; font-size: 0.8rem; }
+    .c1 { background: red;                    color: white; }
+    .c2 { background: #2E75B6;                color: white; }
+    .c3 { background: rgb(46, 117, 182);      color: white; }
+    .c4 { background: rgba(0, 0, 0, 0.5);    color: white; }
+    .c5 { background: hsl(210, 60%, 45%);     color: white; }
+    .overlay-demo { position: relative; width: 240px; height: 80px;
+                    background: url(https://picsum.photos/240/80); margin-top: 12px; }
+    .overlay-demo::after { content: "rgba 오버레이"; position: absolute; inset: 0;
+                           background: rgba(0,0,0,0.5); color: white;
+                           display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="swatch c1">red</div>
+  <div class="swatch c2">#2E75B6</div>
+  <div class="swatch c3">rgb()</div>
+  <div class="swatch c4">rgba(0,0,0,.5)</div>
+  <div class="swatch c5">hsl()</div>
+  <div class="overlay-demo"></div>
+</body>
+</html>

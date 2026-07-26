@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>align-items</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+    .row { display: flex; height: 100px;
+           background: #fce4ec; border: 1px solid #f48fb1;
+           border-radius: 6px; padding: 8px; margin-bottom: 8px; gap: 8px; }
+    .item { background: #e91e63; color: white; padding: 8px 16px;
+            border-radius: 4px; font-size: 0.85rem; }
+    .label { font-size: 0.78rem; color: #555; margin-bottom: 4px; }
+
+    /* 수직•수평 완벽 중앙 정렬 — Flexbox 최고의 활용 */
+    .center-all {
+      display: flex;
+      justify-content: center;   /* 가로 가운데 */
+      align-items: center;       /* 세로 가운데 */
+      height: 120px;
+      background: #e8f5e9; border: 1px solid #a5d6a7;
+      border-radius: 6px; margin-top: 8px;
+    }
+    .center-box { background: #4caf50; color: white;
+                  padding: 16px 32px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <p class="label">align-items: flex-start</p>
+  <div class="row" style="align-items: flex-start">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">align-items: center</p>
+  <div class="row" style="align-items: center">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">align-items: flex-end</p>
+  <div class="row" style="align-items: flex-end">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">수직•수평 완벽 중앙 정렬 (justify-content: center + align-items: center)</p>
+  <div class="center-all">
+    <div class="center-box">가운데 정렬!</div>
+  </div>
+</body>
+</html>

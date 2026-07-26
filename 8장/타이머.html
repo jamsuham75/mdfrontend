@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머</title>
+</head>
+<body>
+    <script>
+        // setTimeout(실행할함수, 지연시간ms)
+        setTimeout(() => {
+        console.log('3초 후에 실행됩니다!');
+        }, 3000);
+
+        // 반환값: 타이머 ID (취소할 때 사용)
+        const timerId = setTimeout(() => {
+        showAd();
+        }, 5000);
+
+        // clearTimeout: 타이머 취소
+        clearTimeout(timerId);  // 5초가 되기 전에 취소
+
+        // 지연시간 0ms: 현재 실행 스택이 끝난 직후 실행
+        console.log('1번');
+        setTimeout(() => console.log('3번'), 0); // 0ms여도 비동기!
+        console.log('2번');
+        // 출력 순서: 1번 → 2번 → 3번
+    </script>
+</body>
+</html>

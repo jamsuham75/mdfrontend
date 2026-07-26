@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-template-columns</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+    .label { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
+    .grid { display: grid; gap: 8px;
+            background: #e3f2fd; border: 1px solid #90caf9;
+            border-radius: 6px; padding: 8px; margin-bottom: 12px; }
+    .item { background: #1976d2; color: white; padding: 16px;
+            border-radius: 4px; text-align: center; font-size: 0.85rem; }
+
+    .col-3-equal { grid-template-columns: repeat(3, 1fr); }
+    .col-ratio   { grid-template-columns: 2fr 1fr 1fr; }
+    .col-mixed   { grid-template-columns: 160px 1fr; }
+  </style>
+</head>
+<body>
+  <p class="label">repeat(3, 1fr) — 균등 3열</p>
+  <div class="grid col-3-equal">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+  </div>
+  <p class="label">2fr 1fr 1fr — 2:1:1 비율</p>
+  <div class="grid col-ratio">
+    <div class="item">2fr</div>
+    <div class="item">1fr</div>
+    <div class="item">1fr</div>
+  </div>
+  <p class="label">160px 1fr — 고정 사이드바 + 유동 콘텐츠</p>
+  <div class="grid col-mixed">
+    <div class="item">사이드바 160px</div>
+    <div class="item">콘텐츠 영역 (1fr)</div>
+  </div>
+</body>
+</html>

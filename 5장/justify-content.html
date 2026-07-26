@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>justify-content</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+    .row { display: flex; background: #e3f2fd; border: 1px solid #90caf9;
+           border-radius: 6px; padding: 8px; margin-bottom: 8px; }
+    .item { background: #2196f3; color: white; padding: 10px 20px;
+            border-radius: 4px; font-size: 0.85rem; }
+    .label { font-size: 0.78rem; color: #555; margin-bottom: 4px; }
+
+    .jc-start   { justify-content: flex-start;   }
+    .jc-end     { justify-content: flex-end;     }
+    .jc-center  { justify-content: center;       }
+    .jc-between { justify-content: space-between;}
+    .jc-around  { justify-content: space-around; }
+    .jc-evenly  { justify-content: space-evenly; }
+  </style>
+</head>
+<body>
+  <p class="label">flex-start</p>
+  <div class="row jc-start">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">center</p>
+  <div class="row jc-center">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">space-between</p>
+  <div class="row jc-between">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+  <p class="label">space-evenly</p>
+  <div class="row jc-evenly">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+  </div>
+</body>
+</html>

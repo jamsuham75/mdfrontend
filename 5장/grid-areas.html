@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-template-areas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; }
+    .layout {
+      display: grid;
+      grid-template-areas:
+        "header  header  header"
+        "sidebar content content"
+        "footer  footer  footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 56px 1fr 44px;
+      min-height: 100vh;
+      gap: 4px; background: #ddd; padding: 4px;
+    }
+    .layout > * { padding: 16px; border-radius: 4px; }
+    .site-header { grid-area: header;  background: #2E75B6; color: white; }
+    .site-sidebar{ grid-area: sidebar; background: #e8f5e9; }
+    .site-main   { grid-area: content; background: white;   }
+    .site-footer { grid-area: footer;  background: #333;    color: white;
+                   font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header class="site-header">헤더</header>
+    <aside  class="site-sidebar">사이드바</aside>
+    <main   class="site-main">메인 콘텐츠</main>
+    <footer class="site-footer">푸터</footer>
+  </div>
+</body>
+</html>

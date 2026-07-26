@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참조자료형</title>
+</head>
+<body>
+    <script>
+        // ① 배열(Array): 순서가 있는 값의 목록. [ ] 사용
+        const fruits = ['사과', '바나나', '딸기'];
+
+        // 인덱스(index): 0번부터 시작
+        console.log(fruits[0]);  // '사과'  (첫 번째)
+        console.log(fruits[1]);  // '바나나' (두 번째)
+        console.log(fruits[2]);  // '딸기'  (세 번째)
+        console.log(fruits.length); // 3 (배열 길이)
+
+        // 배열 수정
+        fruits[0] = '포도';   // 첫 번째 요소를 '포도'로 변경
+        fruits.push('수박');  // 맨 뒤에 추가
+        fruits.pop();         // 맨 뒤 요소 제거 및 반환
+        fruits.unshift('망고'); // 맨 앞에 추가
+        fruits.shift();       // 맨 앞 요소 제거 및 반환
+
+        // ② 객체(Object): 키-값 쌍으로 구성. { } 사용
+        const person = {
+        name: '홍길동',
+        age: 25,
+        isStudent: true,
+        hobbies: ['독서', '코딩'],  // 배열도 값으로 가능
+        };
+
+        // 속성 접근 방법 두 가지
+        console.log(person.name);        // '홍길동' (점 표기법)
+        console.log(person['age']);      // 25       (대괄호 표기법)
+
+        // 속성 추가 및 수정
+        person.email = 'hong@example.com';  // 새 속성 추가
+        person.age   = 26;                  // 기존 속성 수정
+
+        // 속성 삭제
+        delete person.isStudent;
+
+        // 속성 존재 여부 확인
+        console.log('name' in person);  // true
+        console.log('phone' in person); // false
+    </script>
+</body>
+</html>

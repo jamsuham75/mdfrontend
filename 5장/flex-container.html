@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex 컨테이너 / 아이템</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+    .label { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+
+    /* Flex 미적용: 세로로 쌓임 */
+    .no-flex .item {
+      background: #e3f2fd; border: 2px solid #2196f3;
+      padding: 16px 24px; margin-bottom: 4px; text-align: center;
+    }
+
+    /* Flex 적용: 가로로 나란히 */
+    .with-flex {
+      display: flex;  /* Flex 컨테이너 */
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .with-flex .item {  /* Flex 아이템 */
+      background: #e8f5e9; border: 2px solid #4caf50;
+      padding: 16px 24px; text-align: center; flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <p class="label">display: flex 미적용 — 세로로 쌓임</p>
+  <div class="no-flex">
+    <div class="item">아이템 1</div>
+    <div class="item">아이템 2</div>
+    <div class="item">아이템 3</div>
+  </div>
+
+  <p class="label">display: flex 적용 — 가로로 나란히</p>
+  <div class="with-flex">
+    <div class="item">아이템 1</div>
+    <div class="item">아이템 2</div>
+    <div class="item">아이템 3</div>
+  </div>
+</body>
+</html>

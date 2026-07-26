@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 기본 for 문: 초기화; 조건; 증감
+        for (let i = 0; i < 5; i++) {
+            console.log(`${i}번째 반복`);
+        }
+        // 출력: 0번째, 1번째, 2번째, 3번째, 4번째
+
+        // 배열과 함께 자주 사용
+        const fruits = ['사과', '바나나', '딸기', '포도'];
+        for (let i = 0; i < fruits.length; i++) {
+         console.log(`${i}: ${fruits[i]}`);
+        }
+
+        // 역방향 반복
+        for (let i = fruits.length - 1; i >= 0; i--) {
+            console.log(fruits[i]);  // 포도, 딸기, 바나나, 사과
+        }
+
+        // break: 반복 즉시 종료
+        for (let i = 0; i < 10; i++) {
+        if (i === 5) break;   // i가 5가 되면 반복 종료
+            console.log(i);       // 0, 1, 2, 3, 4
+        }
+
+        // continue: 현재 반복만 건너뜀
+        for (let i = 0; i < 5; i++) {
+        if (i === 2) continue;  // i=2는 건너뜀
+            console.log(i);          // 0, 1, 3, 4
+        }
+    </script>
+</body>
+</html>

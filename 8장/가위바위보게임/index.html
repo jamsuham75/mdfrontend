@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가위바위보 게임</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class='game-wrap'>
+    <h1>✊ 가위바위보</h1>
+
+    <!-- 점수판 -->
+    <div class='scoreboard'>
+      <div class='score-item'>
+        <span class='score-label'>나</span>
+        <span class='score-value' id='myScore'>0</span>
+      </div>
+      <div class='score-item score-draw'>
+        <span class='score-label'>무승부</span>
+        <span class='score-value' id='drawScore'>0</span>
+      </div>
+      <div class='score-item'>
+        <span class='score-label'>컴퓨터</span>
+        <span class='score-value' id='cpuScore'>0</span>
+      </div>
+    </div>
+
+    <!-- 선택 표시 영역 -->
+    <div class='choice-display'>
+      <div class='choice-box' id='myChoice'>
+        <div class='choice-icon'>🤔</div>
+        <p>나의 선택</p>
+      </div>
+      <div class='vs'>VS</div>
+      <div class='choice-box' id='cpuChoice'>
+        <div class='choice-icon spinning' id='cpuIcon'>❓</div>
+        <p>컴퓨터</p>
+      </div>
+    </div>
+
+    <!-- 결과 메시지 -->
+    <div class='result-msg' id='resultMsg'>선택하세요!</div>
+
+    <!-- 선택 버튼 -->
+    <div class='choice-btns'>
+      <button class='choice-btn' data-choice='scissors' aria-label='가위'>
+        <span class='btn-icon'>✌️</span>
+        <span class='btn-label'>가위</span>
+      </button>
+      <button class='choice-btn' data-choice='rock' aria-label='바위'>
+        <span class='btn-icon'>✊</span>
+        <span class='btn-label'>바위</span>
+      </button>
+      <button class='choice-btn' data-choice='paper' aria-label='보'>
+        <span class='btn-icon'>🖐</span>
+        <span class='btn-label'>보</span>
+      </button>
+    </div>
+
+    <!-- 게임 기록 -->
+    <div class='history-wrap'>
+      <h3>최근 기록</h3>
+      <ul class='history-list' id='historyList'></ul>
+    </div>
+
+    <button class='reset-btn' id='resetBtn'>🔄 초기화</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 조합 선택자 실습</title>
+  <link rel="stylesheet" href="costyle.css">
+</head>
+<body>
+
+  <!-- ① 자손 선택자: main p, .card img -->
+  <main>
+    <div class="card">
+      <img src="https://picsum.photos/300/160" alt="카드 이미지">
+      <p>카드 안의 p — line-height와 border-radius가 적용됩니다.</p>
+    </div>
+  </main>
+
+  <!-- ② 자식 선택자: nav > ul, ul > li -->
+  <nav>
+    <ul>
+      <li>홈</li>
+      <li>소개</li>
+      <li>연락처</li>
+    </ul>
+  </nav>
+
+  <!-- ③ 인접 형제: h2 + p  /  ④ 일반 형제: h2 ~ p -->
+  <section>
+    <h2>공지사항</h2>
+    <p>h2 바로 다음 p — margin-top: 0 적용 (③)</p>
+    <p>h2 이후 형제 p — color: #555 적용 (④)</p>
+    <p>h2 이후 형제 p — color: #555 적용 (④)</p>
+  </section>
+
+  <!-- ③ 인접 형제: label + input  /  ⑤ 속성 선택자 -->
+  <form>
+    <label for="name">이름</label>
+    <input type="text" id="name" placeholder="label + input 적용">
+    <input type="submit" value="제출">
+  </form>
+
+  <!-- ⑤ 속성 선택자: a[href^=], a[href$=], a[href*=] -->
+  <ul>
+    <li><a href="https://example.com">https 링크 (초록색)</a></li>
+    <li><a href="report.pdf">PDF 링크 (빨간색)</a></li>
+    <li><a href="https://naver.com">naver 포함 링크 (굵게)</a></li>
+  </ul>
+
+</body>
+</html>

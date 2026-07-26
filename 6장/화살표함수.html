@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 기존 함수 표현식
+        // const add = function(a, b) {
+        //     return a + b;
+        // };
+
+        // // 화살표 함수로 변환
+        // const add = (a, b) => {
+        //     return a + b;
+        // };
+
+        // 본문이 return 한 줄이면 {}와 return 생략 가능
+        const add = (a, b) => a + b;
+        console.log(add(3, 5));  // 8
+
+        // 매개변수가 하나이면 () 생략 가능
+        const double = n => n * 2;
+        const greet  = name => `안녕, ${name}!`;
+        console.log(double(4));  // 8
+        console.log(greet('이주성')); // '안녕, 이주성!'
+
+        // 매개변수가 없으면 () 필수
+        const sayHello = () => '안녕하세요!';
+        console.log(sayHello()); // '안녕하세요!'
+
+        // 객체를 반환할 때는 ()로 감싸야 함
+        const makeUser = (name, age) => ({ name, age });
+        console.log(makeUser('이창현', 25));  // { name: '이창현', age: 25 }
+
+        // 배열 메서드와 함께 사용
+        const numbers = [1, 2, 3, 4, 5];
+        const evens   = numbers.filter(n => n % 2 === 0); // [2, 4]
+        const doubled = numbers.map(n => n * 2);           // [2, 4, 6, 8, 10]
+        console.log(evens);
+        console.log(doubled);
+    </script>
+</body>
+</html>

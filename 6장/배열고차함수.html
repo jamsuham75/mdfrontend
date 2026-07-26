@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const users = [
+        { name: '이창현', age: 25, score: 88 },
+        { name: '김개발', age: 17, score: 72 },
+        { name: '이자바', age: 30, score: 95 },
+        { name: '박복순',   age: 22, score: 60 },
+        ];
+
+        // forEach: 각 요소에 함수 실행. 반환값 없음
+        numbers.forEach(num => console.log(num));
+        users.forEach(user => console.log(user.name));
+
+        // map: 각 요소를 변환한 새 배열 반환
+        const doubled = numbers.map(n => n * 2);
+        // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+        console.log(doubled);
+
+        const names = users.map(user => user.name);
+        // ['홍길동', '김개발', '이자바', '박웹']
+        console.log(names);
+
+        // filter: 조건에 맞는 요소만 모은 새 배열 반환
+        const evens = numbers.filter(n => n % 2 === 0);
+        // [2, 4, 6, 8, 10]
+        console.log(evens);
+
+        const adults = users.filter(user => user.age >= 18);
+        // 이창현, 이자바, 박복순 (17세 김개발 제외)
+        console.log(adults);
+
+        // find: 조건에 맞는 첫 번째 요소 반환 (없으면 undefined)
+        const topStudent = users.find(user => user.score >= 90);
+        // { name: '이자바', age: 30, score: 95 }
+        console.log(topStudent);
+
+        // some: 하나라도 조건 만족하면 true
+        const hasMinor = users.some(user => user.age < 18);  // true
+        console.log(hasMinor);
+
+        // every: 모두 조건 만족해야 true
+        const allAdult = users.every(user => user.age >= 18); // false
+        console.log(allAdult);
+
+        // reduce: 배열을 하나의 값으로 축약
+        const total = numbers.reduce((acc, cur) => acc + cur, 0);
+        // 55 (1+2+3+...+10)
+        console.log(total);
+
+        const totalScore = users.reduce((sum, u) => sum + u.score, 0);
+        // 315
+        console.log(totalScore);
+    </script>
+</body>
+</html>

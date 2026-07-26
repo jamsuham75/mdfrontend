@@ -1,0 +1,61 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
+img { display: block; max-width: 100%; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  display: flex; justify-content: center; align-items: center; padding: 24px;
+}
+
+.card {
+  background: white; border-radius: 20px;
+  width: 360px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  overflow: hidden; text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.18); }
+
+.card-header { height: 100px;
+  background: linear-gradient(135deg, #2E75B6, #667eea); }
+
+.profile-img-wrapper { margin-top: -56px; display: flex; justify-content: center; }
+.profile-img {
+  width: 112px; height: 112px; border-radius: 50%; object-fit: cover;
+  border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-body { padding: 20px 32px 32px; }
+.name      { font-size: 1.5rem; font-weight: 700; color: #333333; margin: 12px 0 4px; }
+.job-title { font-size: 0.95rem; color: #2E75B6; font-weight: 500; margin-bottom: 6px; }
+.company   { font-size: 0.85rem; color: #777777; margin-bottom: 20px; }
+.company i { margin-right: 4px; }
+
+.info-list { background: #f0f4f8; border-radius: 12px;
+  padding: 16px 20px; margin-bottom: 20px; text-align: left; }
+.info-list li { font-size: 0.875rem; color: #777777;
+  padding: 6px 0; border-bottom: 1px solid #e8e8e8; }
+.info-list li:last-child { border-bottom: none; }
+.info-list i  { width: 18px; color: #2E75B6; margin-right: 8px; }
+
+.social-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-links a {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #f0f4f8;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: #2E75B6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.social-links a:hover { background: #2E75B6; color: white; }
+
+.btn-contact {
+  display: block;
+  background: linear-gradient(135deg, #2E75B6, #667eea);
+  color: white; padding: 12px; border-radius: 12px;
+  font-weight: 700; letter-spacing: 0.03em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.btn-contact:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-contact i { margin-right: 8px; }

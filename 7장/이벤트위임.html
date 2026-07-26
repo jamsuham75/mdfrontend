@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이벤트 위임</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; justify-content: space-between; align-items: center;
+         padding: 10px 14px; background: #f9f9f9; border-radius: 6px;
+         margin-bottom: 6px; border: 1px solid #eee; }
+    li.done span { text-decoration: line-through; color: #999; }
+    .btn-done { background: #4caf50; color: white; border: none;
+                border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+    .btn-del  { background: #e53935; color: white; border: none;
+                border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+    .add-row  { display: flex; gap: 8px; margin-bottom: 12px; }
+    input { flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; }
+    .btn-add { padding: 8px 16px; background: #2E75B6; color: white;
+               border: none; border-radius: 6px; cursor: pointer; }
+    #log { background: #f5f5f5; padding: 10px 12px; border-radius: 6px;
+           font-size: 0.85rem; font-family: monospace; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="add-row">
+    <input id="newItem" placeholder="새 항목 입력">
+    <button class="btn-add" onclick="addItem()">추가</button>
+  </div>
+
+  <!-- 이벤트 리스너는 ul 하나에만 등록 -->
+  <ul id="list">
+    <li data-id="1"><span>운동하기</span>
+      <div>
+        <button class="btn-done" data-action="done" data-id="1">완료</button>
+        <button class="btn-del"  data-action="del"  data-id="1">삭제</button>
+      </div>
+    </li>
+    <li data-id="2"><span>책 읽기</span>
+      <div>
+        <button class="btn-done" data-action="done" data-id="2">완료</button>
+        <button class="btn-del"  data-action="del"  data-id="2">삭제</button>
+      </div>
+    </li>
+  </ul>
+  <div id="log">버튼을 클릭해보세요</div>
+
+  <script>
+    let nextId = 3;
+    const list = document.getElementById('list');
+    const log  = document.getElementById('log');
+
+    // ul 하나에만 리스너 — 이벤트 위임
+    list.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+
+      const { action, id } = btn.dataset;
+      const li = list.querySelector(`li[data-id="${id}"]`);
+
+      if (action === 'done') {
+        li.classList.toggle('done');
+        log.textContent = `완료 토글: id=${id}`;
+      } else if (action === 'del') {
+        li.remove();
+        log.textContent = `삭제됨: id=${id}`;
+      }
+    });
+
+    function addItem() {
+      const text = document.getElementById('newItem').value.trim();
+      if (!text) return;
+      const id = nextId++;
+      list.insertAdjacentHTML('beforeend', `
+        <li data-id="${id}"><span>${text}</span>
+          <div>
+            <button class="btn-done" data-action="done" data-id="${id}">완료</button>
+            <button class="btn-del"  data-action="del"  data-id="${id}">삭제</button>
+          </div>
+        </li>`,
+      );
+      document.getElementById('newItem').value = '';
+      log.textContent = `추가됨: "${text}" (id=${id}) — 새 항목에도 이벤트 자동 적용!`;
+    }
+  </script>
+</body>
+</html>

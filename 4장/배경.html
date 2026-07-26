@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>배경 실습</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; }
+
+    .hero {
+      height: 180px;
+      background: linear-gradient(135deg, #2E75B6, #43a047);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.5rem; font-weight: bold;
+    }
+    .card-row { display: flex; gap: 16px; padding: 24px; background: #f5f7fa; }
+    .card {
+      flex: 1; padding: 20px; border-radius: 10px;
+      background: white; border: 1px solid #e0e0e0;
+    }
+    .card.bg-img {
+      background: url(https://picsum.photos/300/160) center/cover no-repeat #1a1a2e;
+      color: white; min-height: 100px;
+    }
+    .card.radial {
+      background: radial-gradient(circle, #fff 0%, #e3f2fd 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">linear-gradient 배경</div>
+  <div class="card-row">
+    <div class="card bg-img">배경 이미지 + fallback 색상</div>
+    <div class="card radial">radial-gradient</div>
+    <div class="card">단색 배경 (#fff)</div>
+  </div>
+</body>
+</html>

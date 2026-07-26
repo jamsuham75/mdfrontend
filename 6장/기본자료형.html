@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본자료형</title>
+</head>
+<body>
+    <script>
+        // ① Number (숫자): 정수, 소수, 음수 모두 포함
+        let age    = 25;
+        let price  = 9900.5;
+        let temp   = -5;
+        let big    = 1_000_000;   // 숫자 구분자 _ 사용 가능 (가독성)
+
+        // 특별한 숫자 값
+        console.log(10 / 0);     // Infinity  (양의 무한대)
+        console.log(-10 / 0);    // -Infinity (음의 무한대)
+        console.log('abc' * 2);  // NaN (Not a Number: 숫자가 아님)
+        console.log(isNaN('abc')); // true  — NaN 여부 확인 함수
+
+        // ② String (문자열): 작은따옴표, 큰따옴표, 백틱 모두 사용 가능
+        let name1  = '홍길동';
+        let name2  = "김개발";
+        let msg    = `안녕하세요!`;   // 백틱 (템플릿 리터럴)
+
+        // 문자열 이어붙이기 (concatenation)
+        let firstName = '길동';
+        let lastName  = '홍';
+        console.log(lastName + firstName);  // '홍길동'
+        console.log('나이: ' + 25);         // '나이: 25' (자동 형변환)
+
+        // ③ Boolean (불리언): 참(true) 또는 거짓(false) 두 값만 존재
+        let isLoggedIn = true;
+        let hasError   = false;
+        let isAdult    = age >= 18;  // 비교 결과도 boolean
+
+        // ④ undefined: 변수를 선언했지만 값을 아직 넣지 않은 상태
+        let result;
+        console.log(result);  // undefined
+
+        // ⑤ null: '값이 없음'을 의도적으로 표현
+        let currentUser = null;  // 로그인하지 않은 상태
+
+        // ⑥ Symbol (심볼): 고유한 식별자. 고급 주제라 일단 존재만 알아두기
+        const id = Symbol('userId');
+
+    </script>
+</body>
+</html>

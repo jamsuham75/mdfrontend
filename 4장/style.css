@@ -1,0 +1,12 @@
+/* 속성 선택자 스타일 */
+a[href^="https"] {
+    color: green;
+}
+
+a[href$=".pdf"] {
+    color: red;
+}
+
+a[href*="naver"] {
+    font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 배열 구조 분해
+        const colors = ['빨강', '초록', '파랑'];
+
+        // 기존 방식
+        // const red   = colors[0];
+        // const green = colors[1];
+        // const blue  = colors[2];
+
+        // 구조 분해
+        const [red, green, blue] = colors;
+        console.log(red);   // '빨강'
+        console.log(green); // '초록'
+
+        // 일부만 가져오기, 나머지는 ...rest로
+        const [first, ...rest] = colors;
+        console.log(first); // '빨강'
+        console.log(rest);  // ['초록', '파랑']
+
+        // 기본값 설정
+        const [a = 1, b = 2, c = 3] = [10, 20];
+        console.log(c); // 3 (값이 없으면 기본값)
+
+        // 객체 구조 분해
+        const user = { name: '이귀엽', age: 25, city: '수원' };
+
+        const { name, age } = user;
+        console.log(name); // '이귀엽'
+        console.log(age);  // 25
+
+        // 다른 이름으로 받기 (별칭)
+        const { name: userName, age: userAge } = user;
+
+        // 함수 매개변수에서 구조 분해
+        function printUser({ name, age, city = '미정' }) {
+            console.log(`${name}(${age})님, ${city} 거주`);
+        }
+        printUser(user);  // '이귀엽(25)님, 수원 거주'
+    </script>
+</body>
+</html>

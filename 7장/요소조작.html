@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>요소 조작</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    .box { padding: 20px; border: 2px solid #ddd; border-radius: 8px;
+           margin: 12px 0; transition: all 0.3s; }
+    .box.active  { background: #e3f2fd; border-color: #2196f3; }
+    .box.hidden  { display: none; }
+    .box.big     { font-size: 1.5rem; }
+    .controls    { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    button { padding: 8px 16px; border: none; border-radius: 6px;
+             background: #2E75B6; color: white; cursor: pointer; }
+    button:hover { opacity: 0.85; }
+    #log { background: #f5f5f5; padding: 12px; border-radius: 8px;
+           font-family: monospace; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="addActive()">active 추가</button>
+    <button onclick="removeActive()">active 제거</button>
+    <button onclick="toggleBig()">big 토글</button>
+    <button onclick="changeText()">텍스트 변경</button>
+    <button onclick="changeHtml()">HTML 삽입</button>
+    <button onclick="changeStyle()">스타일 직접 변경</button>
+  </div>
+  <div class="box" id="box">조작 대상 박스</div>
+  <div id="log">classList: </div>
+
+  <script>
+    const box = document.getElementById('box');
+    const log = document.getElementById('log');
+
+    function updateLog() {
+      log.textContent = 'classList: ' + [...box.classList].join(', ') || '(없음)';
+    }
+    function addActive()    { box.classList.add('active');    updateLog(); }
+    function removeActive() { box.classList.remove('active'); updateLog(); }
+    function toggleBig()    { box.classList.toggle('big');    updateLog(); }
+    function changeText()   {
+      box.textContent = 'textContent로 변경 — <b>태그</b>는 문자로 표시됨';
+      updateLog();
+    }
+    function changeHtml() {
+      box.innerHTML = 'innerHTML: <strong>굵게</strong> <em>기울임</em> 표시됨';
+      updateLog();
+    }
+    function changeStyle() {
+      box.style.backgroundColor = '#fff3e0';
+      box.style.borderColor     = '#ff9800';
+      box.textContent = 'style.속성명으로 직접 변경';
+      updateLog();
+    }
+    updateLog();
+  </script>
+</body>
+</html>

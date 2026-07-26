@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 기본값 매개변수: 인수가 없을 때 사용할 기본값 지정
+        function greet(name = '게스트', greeting = '안녕하세요') {
+        return `${greeting}, ${name}님!`;
+        }
+        console.log(greet());              // '안녕하세요, 게스트님!'
+        console.log(greet('이주성'));       // '안녕하세요, 이주성님!'
+        console.log(greet('이은성', '반갑습니다')); // '반갑습니다, 이주성님!'
+
+        // 나머지 매개변수(...): 개수가 정해지지 않은 인수를 배열로 받음
+        function sum(...numbers) {
+        return numbers.reduce((acc, n) => acc + n, 0);
+        }
+        console.log(sum(1, 2, 3));       // 6
+        console.log(sum(1, 2, 3, 4, 5)); // 15
+    </script>
+</body>
+</html>

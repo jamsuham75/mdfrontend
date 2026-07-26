@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // 함수 선언식: function 키워드로 시작
+        function greet(name) {
+        return `안녕하세요, ${name}님!`;
+        }
+
+        // 함수 호출(실행)
+        console.log(greet('이귀엽'));  // '안녕하세요, 이귀엽님!'
+        console.log(greet('김개발'));  // '안녕하세요, 김개발님!'
+
+        // 매개변수(parameter): name ← 함수 정의 시의 변수
+        // 인수(argument): '이귀엽' ← 실제 전달하는 값
+
+        // 여러 매개변수
+        function add(a, b) {
+        return a + b;
+        }
+        console.log(add(3, 5));   // 8
+        console.log(add(10, 20)); // 30
+
+        // return이 없으면 undefined 반환
+        function printHello() {
+        console.log('Hello!');
+        // return; 이 없으면 자동으로 undefined 반환
+        }
+        const result = printHello(); // 'Hello!' 출력
+        console.log(result);         // undefined
+    </script>
+</body>
+</html>

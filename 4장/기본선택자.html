@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 선택자 실습</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ① 전체 선택자: style.css에서 모든 요소에 적용 -->
+
+  <!-- ② 태그 선택자: h1, p, img -->
+  <section>
+    <h1>CSS 선택자를 배워보자</h1>
+    <p>선택자는 어떤 요소에 스타일을 적용할지 지정하는 방법입니다.</p>
+    <img src="https://picsum.photos/600/200" alt="배너 이미지">
+  </section>
+
+  <!-- ③ 클래스 선택자: .btn .btn-primary / .btn-danger -->
+  <nav>
+    <a href="#" class="btn btn-primary">로그인</a>
+    <a href="#" class="btn btn-danger">회원가입</a>
+  </nav>
+
+  <!-- ④ ID 선택자: #header, #loginForm -->
+  <header id="header"><span>My Website</span></header>
+
+  <main>
+    <form id="loginForm">
+      <h2>로그인</h2>
+      <label for="email">이메일</label>
+      <input type="email" id="email" placeholder="이메일을 입력하세요">
+      <label for="pw">비밀번호</label>
+      <input type="password" id="pw" placeholder="비밀번호를 입력하세요">
+      <button type="submit" class="btn btn-primary">로그인</button>
+      <button type="reset"  class="btn btn-danger">초기화</button>
+    </form>
+  </main>
+
+</body>
+</html>

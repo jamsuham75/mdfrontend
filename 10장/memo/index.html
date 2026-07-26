@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메모장</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>📝 메모장</h1>
+    <textarea id="newText" placeholder="메모를 입력하세요..."></textarea>
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="🔍 검색">
+      <button class="btn-add" onclick="addMemo()">메모 추가</button>
+    </div>
+    <ul class="memo-list" id="list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

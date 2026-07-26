@@ -1,0 +1,18 @@
+/* 사용자 행동 */
+a:hover        { color: #e53935; }
+button:active  { transform: scale(0.97); }
+input:focus    { outline: 2px solid #2E75B6; }
+input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* 구조적 위치 */
+li:first-child    { font-weight: bold; }
+li:last-child     { border-bottom: none; }
+li:nth-child(odd) { background: #f5f5f5; }
+
+/* 폼 상태 */
+input:required { border-left: 3px solid #e53935; }
+input:valid    { border-color: #43a047; }
+input:invalid  { border-color: #e53935; }
+
+/* 부정 선택자 */
+p:not(.intro) { text-indent: 1em; }

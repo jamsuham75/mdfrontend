@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 카드 갤러리</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700
+        &display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🌿 GreenStore</h1>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#">전체</a></li>
+          <li><a href="#">식물</a></li>
+          <li><a href="#">도구</a></li>
+          <li><a href="#">화분</a></li>
+        </ul>
+      </nav>
+      <button class="cart-btn" aria-label="장바구니">
+        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+        <span class="cart-count">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero">
+    <h2>당신의 공간을 초록으로</h2>
+    <p>건강하고 아름다운 식물을 집으로 데려오세요</p>
+    <a href="#products" class="btn-hero">쇼핑 시작하기</a>
+  </section>
+
+  <!-- 상품 갤러리 -->
+  <main class="main-content" id="products">
+    <h2 class="section-title">인기 상품</h2>
+    <div class="card-grid">
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <img src="https://picsum.photos/seed/plant1/400/300" alt="몬스테라 화분">
+          <span class="badge badge-new">NEW</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">관엽식물</p>
+          <h3 class="card-title">몬스테라 델리시오사</h3>
+          <p class="card-desc">넓은 잎이 인상적인 인기 관엽식물</p>
+          <div class="card-footer">
+            <span class="card-price">28,000원</span>
+            <button class="btn-add" aria-label="장바구니에 담기">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <img src="https://picsum.photos/seed/plant2/400/300" alt="산세베리아 화분">
+          <span class="badge badge-best">BEST</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">공기정화</p>
+          <h3 class="card-title">산세베리아</h3>
+          <p class="card-desc">강한 생명력, 탁월한 공기 정화 능력</p>
+          <div class="card-footer">
+            <span class="card-price">15,000원</span>
+            <button class="btn-add" aria-label="장바구니에 담기">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 카드 추가 시 위 구조를 반복 -->
+
+    </div>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <p>&copy; 2025 GreenStore. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

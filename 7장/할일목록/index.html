@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do 리스트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>📝 오늘 할 일</h1>
+      <p class="date" id="dateDisplay"></p>
+    </header>
+
+    <!-- 입력 영역 -->
+    <div class="input-area">
+      <input type="text" id="todoInput"
+             placeholder="새로운 할 일을 입력하세요..."
+             maxlength="100" autocomplete="off">
+      <button id="addBtn">추가</button>
+    </div>
+
+    <!-- 필터 탭 -->
+    <div class="filter-tabs">
+      <button class="tab active" data-filter="all">전체 <span id="countAll">0</span></button>
+      <button class="tab" data-filter="active">진행 중 <span id="countActive">0</span></button>
+      <button class="tab" data-filter="done">완료 <span id="countDone">0</span></button>
+    </div>
+
+    <!-- 할 일 목록 -->
+    <ul class="todo-list" id="todoList"></ul>
+    <div class="empty-state" id="emptyState">
+      <p>할 일이 없어요! 위에서 추가해 보세요</p>
+    </div>
+
+    <!-- 하단 -->
+    <footer class="app-footer">
+      <span id="remaining">0개 남음</span>
+      <button id="clearDoneBtn">완료 항목 삭제</button>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

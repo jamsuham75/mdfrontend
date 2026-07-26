@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경색 변경기</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      font-family: '맑은 고딕', sans-serif;
+      transition: background-color 0.5s ease;
+    }
+    .container {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 48px 60px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 12px; }
+    #colorDisplay {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 16px 0;
+      font-family: monospace;
+    }
+    #colorName { color: #555; margin-bottom: 28px; font-size: 1rem; }
+    .btn-group { display: flex; gap: 12px; justify-content: center; }
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    button:active { transform: scale(0.97); }
+    #randomBtn  { background: #2E75B6; color: white; }
+    #pastelBtn  { background: #a29bfe; color: white; }
+    #darkBtn    { background: #2d3436; color: white; }
+    #resetBtn   { background: #eee; color: #333; }
+    #history {
+      margin-top: 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .history-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      title: '클릭으로 되돌리기';
+    }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h1>🎨 배경색 변경기</h1>
+    <div id='colorDisplay'>#F0F0F0</div>
+    <p id='colorName'>밝은 회색</p>
+    <div class='btn-group'>
+      <button id='randomBtn'>🎲 랜덤 색상</button>
+      <button id='pastelBtn'>🌸 파스텔 톤</button>
+      <button id='darkBtn'>🌙 다크 톤</button>
+      <button id='resetBtn'>↩ 초기화</button>
+    </div>
+    <div id='history'></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

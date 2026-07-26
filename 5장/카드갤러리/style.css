@@ -1,0 +1,115 @@
+:root {
+  --color-primary:       #2d6a4f;
+  --color-primary-light: #40916c;
+  --color-bg:            #f8faf8;
+  --color-white:         #ffffff;
+  --color-text:          #1b1b1b;
+  --color-muted:         #6c757d;
+  --shadow:   0 4px 16px rgba(0,0,0,0.08);
+  --radius:   12px;
+  --transition: 0.25s ease;
+  --font:     'Noto Sans KR', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--color-bg); color: var(--color-text); }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+img  { display: block; width: 100%; }
+
+/* ── 헤더 ── */
+.site-header { position: sticky; top: 0; background: var(--color-white);
+               box-shadow: 0 2px 8px rgba(0,0,0,0.06); z-index: 100; }
+.header-inner {
+  display: flex;                    /* Flexbox로 헤더 내부 배치 */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px;
+}
+.logo { font-size: 1.3rem; font-weight: 700; color: var(--color-primary); }
+.nav-menu { display: flex; gap: 28px; }
+.nav-menu a { font-size: 0.95rem; font-weight: 500;
+              transition: color var(--transition); }
+.nav-menu a:hover { color: var(--color-primary); }
+.cart-btn { position: relative; background: none; border: none;
+            font-size: 1.3rem; cursor: pointer; }
+.cart-count {
+  position: absolute; top: -6px; right: -8px;
+  background: var(--color-primary); color: white;
+  font-size: 0.65rem; font-weight: 700;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── 히어로 ── */
+.hero { background: linear-gradient(135deg, #1b4332, #40916c);
+        color: white; text-align: center; padding: 80px 24px; }
+.hero h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 16px; }
+.hero p  { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; }
+.btn-hero {
+  display: inline-block; background: white; color: var(--color-primary);
+  padding: 14px 36px; border-radius: 50px; font-weight: 700;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-hero:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+/* ── 메인 콘텐츠 ── */
+.main-content { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+.section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 32px;
+                 padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); }
+
+/* ── 카드 그리드 (핵심!) ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* ── 카드 ── */
+.card {
+  background: var(--color-white); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex; flex-direction: column; /* 카드 내부도 Flexbox */
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.14); }
+.card-img-wrap { position: relative; overflow: hidden; height: 200px; }
+.card-img-wrap img { height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.card:hover .card-img-wrap img { transform: scale(1.06); }
+
+/* ── 배지 ── */
+.badge { position: absolute; top: 12px; left: 12px; padding: 4px 10px;
+         border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: white; }
+.badge-new  { background: #2196f3; }
+.badge-best { background: #f44336; }
+.badge-sale { background: #ff9800; }
+
+/* ── 카드 본문 ── */
+.card-body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.card-category { font-size: 0.78rem; color: var(--color-primary);
+                 font-weight: 600; margin-bottom: 6px; }
+.card-title    { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.card-desc     { font-size: 0.875rem; color: var(--color-muted); flex: 1; }
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid #eee;
+}
+.card-price { font-size: 1.05rem; font-weight: 700; color: var(--color-primary); }
+.btn-add {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--color-primary); color: white; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-add:hover { background: var(--color-primary-light); transform: scale(1.1); }
+
+/* ── 푸터 ── */
+.site-footer { text-align: center; padding: 24px;
+               background: #1b4332; color: rgba(255,255,255,0.7); font-size: 0.875rem; }
+
+/* ── 미디어 쿼리: 모바일 보조 조정 ── */
+@media (max-width: 640px) {
+  .nav-menu { display: none; }   /* 모바일에서 메뉴 숨김 */
+  .hero { padding: 48px 16px; }
+  .main-content { padding: 32px 16px; }
+}

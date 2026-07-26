@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>localStorage 실습</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; max-width: 600px; }
+    .row { display: flex; gap: 8px; margin-bottom: 12px; }
+    input { flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px; }
+    button { padding: 10px 16px; background: #2E75B6; color: white;
+             border: none; border-radius: 6px; cursor: pointer; }
+    .btn-clear { background: #e53935; }
+    pre { background: #f5f5f5; padding: 12px; border-radius: 6px;
+          font-family: monospace; font-size: 0.85rem; min-height: 80px; }
+  </style>
+</head>
+<body>
+  <h2>localStorage CRUD 실습</h2>
+
+  <div class="row">
+    <input id="key" placeholder="키">
+    <input id="val" placeholder="값">
+    <button onclick="save()">저장</button>
+  </div>
+  <div class="row">
+    <button onclick="loadAll()">전체 보기</button>
+    <button class="btn-clear" onclick="clearAll()">전체 삭제</button>
+  </div>
+  <pre id="output">저장된 데이터가 여기 표시됩니다.</pre>
+
+  <script>
+    const output = document.getElementById('output');
+
+    function save() {
+      const key = document.getElementById('key').value.trim();
+      const val = document.getElementById('val').value.trim();
+      if (!key) return alert('키를 입력하세요');
+      localStorage.setItem(key, val);
+      loadAll();
+    }
+
+    function loadAll() {
+      const items = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        items.push(`${k}: ${localStorage.getItem(k)}`);
+      }
+      output.textContent = items.join('\n') || '(저장된 데이터 없음)';
+    }
+
+    function clearAll() {
+      if (confirm('정말 모두 삭제할까요?')) {
+        localStorage.clear();
+        loadAll();
+      }
+    }
+
+    loadAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <h1>F12를 눌러 콘솔(Console) 탭을 확인하세요.</h1>
+
+    <script>
+        // 1. Promise 생성 및 기본 사용
+        console.log('%c--- 1. 기본 Promise 시작 ---', 'color: blue; font-weight: bold;');
+        
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const success = Math.random() > 0.5;
+                if (success) resolve('데이터 수신!');
+                else reject(new Error('실패'));
+            }, 1000);
+        });
+
+        promise
+            .then(data => console.log('성공:', data))
+            .catch(err => console.error('실패:', err.message))
+            .finally(() => console.log('기본 Promise 종료'));
+
+
+        // 2. Promise 체이닝 (순차 실행)
+        // 실제 작동 확인을 위해 무료 테스트용 API 주소를 사용했습니다.
+        console.log('%c--- 2. 체이닝 실행 ---', 'color: green; font-weight: bold;');
+
+        fetch('https://jsonplaceholder.typicode.com/users/1')
+            .then(res => res.json()) // json 파싱
+            .then(user => {
+                console.log('사용자 정보 수신:', user.name);
+                return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`); // 다음 요청
+            })
+            .then(res => res.json()) // 두 번째 응답 파싱
+            .then(posts => console.log('사용자의 포스트 목록:', posts.slice(0, 2))) // 결과 출력(2개만)
+            .catch(err => console.error('체이닝 중 에러:', err));
+
+
+        // 3. 병렬 실행 (Promise.all)
+        console.log('%c--- 3. 병렬 실행 시작 ---', 'color: orange; font-weight: bold;');
+
+        Promise.all([
+            fetch('https://jsonplaceholder.typicode.com/users'),
+            fetch('https://jsonplaceholder.typicode.com/posts')
+        ])
+        .then(([usersRes, postsRes]) => {
+            return Promise.all([usersRes.json(), postsRes.json()]);
+        })
+        .then(([users, posts]) => {
+            console.log('병렬 처리 완료:');
+            console.log('- 사용자 수:', users.length);
+            console.log('- 포스트 수:', posts.length);
+        })
+        .catch(err => console.error('병렬 처리 중 에러:', err));
+    </script>
+</body>
+</html>
