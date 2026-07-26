@@ -1,0 +1,22 @@
+[
+  {
+    "question": "CSS에서 요소를 완전히 숨기고 공간도 차지하지 않게 하는 속성값은?",
+    "options": ["visibility: hidden", "opacity: 0", "display: none", "z-index: -1"],
+    "answer": 2
+  },
+  {
+    "question": "다음 중 JavaScript에서 변수를 선언하는 올바른 방법이 아닌 것은?",
+    "options": ["let x = 5", "const y = 10", "var z = 15", "int w = 20"],
+    "answer": 3
+  },
+  {
+    "question": "Flexbox에서 주축 방향으로 아이템을 정렬하는 속성은?",
+    "options": ["align-items", "justify-content", "align-content", "flex-direction"],
+    "answer": 1
+  },
+  {
+    "question": "배열 [1,2,3,4,5]에서 짝수만 골라내는 코드는?",
+    "options": ["arr.map(n => n % 2 === 0)", "arr.filter(n => n % 2 === 0)", "arr.find(n => n % 2 === 0)", "arr.some(n => n % 2 === 0)"],
+    "answer": 1
+  }
+]

@@ -1,0 +1,81 @@
+:root {
+  --primary: #6c63ff;
+  --correct: #00c896;
+  --wrong:   #ff6b6b;
+  --bg:      #f0f2ff;
+  --card:    #ffffff;
+  --text:    #1a1a2e;
+  --muted:   #8892a4;
+  --border:  #e2e8f0;
+  --radius:  14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: '맑은 고딕', sans-serif;
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; padding: 24px 16px;
+  display: flex; justify-content: center;
+}
+.app { width: 100%; max-width: 500px; }
+
+/* 화면 전환 */
+.screen { display: none; }
+.screen.active { display: flex; flex-direction: column; gap: 16px; }
+
+/* 시작·결과 화면 공통 */
+#screenStart, #screenResult { text-align: center; padding: 24px 0; }
+#screenStart h1, #screenResult h2 {
+  font-size: 1.8rem; color: var(--primary); margin-bottom: 8px;
+}
+#screenStart p { color: var(--muted); margin-bottom: 16px; }
+.best-score { color: var(--muted); font-size: 0.9rem; min-height: 20px; }
+
+button {
+  padding: 14px 24px; background: var(--primary); color: white;
+  border: none; border-radius: var(--radius);
+  font-size: 1rem; cursor: pointer; transition: opacity 0.2s;
+  font-family: inherit;
+}
+button:hover    { opacity: 0.85; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* 퀴즈 진행 화면 */
+.quiz-header {
+  display: flex; justify-content: space-between;
+  background: var(--card); border-radius: var(--radius);
+  padding: 12px 18px;
+}
+#counter, #score { color: var(--muted); }
+#timer { color: var(--primary); }
+#timer.warning { color: var(--wrong); }
+
+.question-box {
+  background: var(--card); border-radius: var(--radius);
+  padding: 24px; line-height: 1.6;
+}
+
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  width: 100%; padding: 14px 18px;
+  background: var(--card); color: var(--text);
+  border: 2px solid var(--border); border-radius: var(--radius);
+  text-align: left; font-size: 1rem;
+  font-family: inherit; cursor: pointer;
+}
+.option-btn:hover:not(:disabled) {
+  border-color: var(--primary); background: rgba(108,99,255,0.05);
+}
+.option-btn.correct {
+  background: rgba(0,200,150,0.12);
+  border-color: var(--correct); color: var(--correct);
+}
+.option-btn.wrong {
+  background: rgba(255,107,107,0.12);
+  border-color: var(--wrong); color: var(--wrong);
+}
+
+#nextBtn { display: none; }
+#nextBtn.visible { display: block; }
+
+/* 결과 화면 */
+.result-score { font-size: 1.2rem; color: var(--muted); }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 개발 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ① 시작 화면 -->
+    <section class="screen active" id="screenStart">
+      <h1>🧠 웹 개발 퀴즈</h1>
+      <p>HTML, CSS, JavaScript 실력을 테스트해 보세요!</p>
+      <p class="best-score" id="bestScore"></p>
+      <button id="startBtn">퀴즈 시작</button>
+    </section>
+
+    <!-- ② 퀴즈 진행 화면 -->
+    <section class="screen" id="screenQuiz">
+      <div class="quiz-header">
+        <span id="counter">1 / 5</span>
+        <span id="timer">⏱ 20</span>
+        <span id="score">0점</span>
+      </div>
+      <div class="question-box">
+        <p id="question"></p>
+      </div>
+      <div class="options" id="options"></div>
+      <button id="nextBtn">다음 문제</button>
+    </section>
+
+    <!-- ③ 결과 화면 -->
+    <section class="screen" id="screenResult">
+      <h2 id="resultGrade"></h2>
+      <p class="result-score" id="resultScore"></p>
+      <button id="retryBtn">다시 도전</button>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
